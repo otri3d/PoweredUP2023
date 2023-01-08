@@ -2,6 +2,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DefaultDriveCommand;
+import frc.robot.commands.DefaultClawCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ClawSubsystem;
 
