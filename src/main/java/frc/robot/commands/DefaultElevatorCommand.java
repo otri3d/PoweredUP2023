@@ -10,7 +10,7 @@ public class DefaultElevatorCommand extends CommandBase {
     private final ElevatorSubsystem s_elevator;
     private final XboxController driver = RobotContainer.getDriverController();
 
-    public DefaultElevatorCommand(ElevatorSubsystem elevator){
+    public DefaultElevatorCommand(ElevatorSubsystem elevator){ //Create Elevator command, and set elevator as a requirement to the command
         s_elevator = elevator;
         addRequirements(elevator);
     }
@@ -21,17 +21,17 @@ public class DefaultElevatorCommand extends CommandBase {
 
     @Override
     public void execute(){
-        double leftTriggerAxis = driver.getLeftTriggerAxis();
+        double leftTriggerAxis = driver.getLeftTriggerAxis(); //Get axis
         double rightTriggerAxis = driver.getRightTriggerAxis();
         //Elevator Movement
-        if(leftTriggerAxis > Constants.triggerDeadzone){
+        if(leftTriggerAxis > Constants.triggerDeadzone){ //Set a deadzone to prevent accidental movement
             s_elevator.setElevatorSpeed(-leftTriggerAxis);
         }
         else if(rightTriggerAxis > Constants.triggerDeadzone){
             s_elevator.setElevatorSpeed(rightTriggerAxis);
         }
-        //Elevator Limit Detection
-        if(s_elevator.limitSwitchHit()){
+        //Limit Switch
+        if(s_elevator.limitSwitchHit()){ //Makes elevator stop if upper switch or lower switch hit anything     
             s_elevator.stopElevator();
         }
         

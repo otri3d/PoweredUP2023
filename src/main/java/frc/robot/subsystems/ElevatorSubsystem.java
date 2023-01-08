@@ -15,7 +15,7 @@ public class ElevatorSubsystem extends SubsystemBase{
     private Encoder encoder = new Encoder(Constants.ENCODER_DIO1, Constants.ENCODER_DIO2, false, Encoder.EncodingType.k2X);
     
 
-    public ElevatorSubsystem(){
+    public ElevatorSubsystem(){ //Declare variables
         m_elevator1 = new WPI_VictorSPX(Constants.ELEVATOR_CAN1);
         m_elevator2 = new WPI_VictorSPX(Constants.ELEVATOR_CAN2);
         
@@ -25,26 +25,26 @@ public class ElevatorSubsystem extends SubsystemBase{
         encoder.setDistancePerPulse(4./256.);
     }
 
-    public void setElevatorSpeed(double speed){
+    public void setElevatorSpeed(double speed){ //Sets the elevator speed
         m_elevatorGroup.set(speed);
     }
     
-    public void encoderRate(){
+    public void encoderRate(){ //Gets the rate of speed of the elevator
         encoder.getRate();
     }
 
-    public void encoderPosition(){
+    public void encoderPosition(){ //Gets the distance the elevator has travelled compared to the starting point
         encoder.getDistance();
     }
 
-    public void encoderReset(){
+    public void encoderReset(){ 
         encoder.reset();
     }
-    public void stopElevator(){
+    public void stopElevator(){ 
         m_elevatorGroup.set(0);
     }
 
-    public boolean limitSwitchHit(){
+    public boolean limitSwitchHit(){  //Method to return true when limit switches get hit
         if(!upper_limit.get()||!lower_limit.get()){
             return true;
         }
