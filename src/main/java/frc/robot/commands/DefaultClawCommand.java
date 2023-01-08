@@ -18,7 +18,14 @@ public class DefaultClawCommand extends CommandBase{
     }
 
     @Override
-    public void execute() {
+    public void execute() {//manual control
+        if(RobotContainer.getOperatorController().getLeftBumper()){
+            s_claw.setClawSpeed(-1); //close
+        } else if(RobotContainer.getOperatorController().getRightBumper()) {
+            s_claw.setClawSpeed(1); //open
+        } else {
+            s_claw.setClawSpeed(0);
+        }
     }
 
 }
