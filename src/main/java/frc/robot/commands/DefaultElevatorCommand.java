@@ -24,9 +24,9 @@ public class DefaultElevatorCommand extends CommandBase {
         double leftTriggerAxis = driver.getLeftTriggerAxis();
         double rightTriggerAxis = driver.getRightTriggerAxis();
         if(leftTriggerAxis > Constants.triggerDeadzone){
-            s_elevator.lower(leftTriggerAxis);
+            s_elevator.setElevatorSpeed(-leftTriggerAxis);
         }else if(rightTriggerAxis > Constants.triggerDeadzone){
-            s_elevator.raise(rightTriggerAxis);
+            s_elevator.setElevatorSpeed(rightTriggerAxis);
         }
         
     }

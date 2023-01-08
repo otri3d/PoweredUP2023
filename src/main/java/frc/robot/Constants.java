@@ -11,6 +11,10 @@ public class Constants {
     public static final int CLAW_CAN = 7;
     public static final int PIVOT_CAN = 8;
     public static final int XBOX_PORT = 0;
+    public static final int ENCODER_DIO1 = 2;
+    public static final int ENCODER_DIO2 = 3;
+    public static final int LIFTLOWER_DIO = 0;
+    public static final int LIFTUPPER_DIO = 1;
 
 
     public static final int UPPER_LIFT_LIMIT_DIO = 0;
