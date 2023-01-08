@@ -1,0 +1,46 @@
+{
+  "HALProvider": {
+    "Other Devices": {
+      "Victor SPX[1]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Victor SPX[2]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Victor SPX[3]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Victor SPX[6]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Victor SPX[7]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Victor SPX[8]": {
+        "header": {
+          "open": true
+        }
+      }
+    }
+  },
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/Victor SPX [5]": "Motor Controller",
+      "/LiveWindow/Ungrouped/Victor SPX [6]": "Motor Controller",
+      "/LiveWindow/Ungrouped/Victor SPX [7]": "Motor Controller",
+      "/LiveWindow/Ungrouped/Victor SPX [8]": "Motor Controller"
+    }
+  }
+}
