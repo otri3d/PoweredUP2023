@@ -14,7 +14,7 @@ public class RobotContainer {
         driveSubsystem = new DriveSubsystem();
         CommandScheduler.getInstance().setDefaultCommand(driveSubsystem, new DefaultDriveCommand(driveSubsystem));
 
-        driver = new XboxController(0);
+        driver = new XboxController(Constants.XBOX_PORT);
     }
 
     public static XboxController getDriverController(){

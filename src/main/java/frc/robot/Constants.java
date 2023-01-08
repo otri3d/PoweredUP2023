@@ -10,6 +10,7 @@ public class Constants {
     public static final int ELEVATOR_CAN2 = 6;
     public static final int CLAW_CAN = 7;
     public static final int PIVOT_CAN = 8;
+    public static final int XBOX_PORT = 0;
 
 
     public static final int UPPER_LIFT_LIMIT_DIO = 0;
