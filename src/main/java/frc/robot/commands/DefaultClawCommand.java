@@ -28,6 +28,8 @@ public class DefaultClawCommand extends CommandBase{
             s_claw.setClawSpeed(0);
         }
 
+        s_claw.setPivotSpeed(RobotContainer.getOperatorController().getRightY());
+
         if(RobotContainer.getOperatorController().getYButton())
             CommandScheduler.getInstance().schedule(new ConeClawCommand(s_claw));
 

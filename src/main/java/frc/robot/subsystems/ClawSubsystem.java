@@ -22,6 +22,10 @@ public class ClawSubsystem extends SubsystemBase{
         m_claw.set(speed);
     }
 
+    public void setPivotSpeed(double speed){
+        m_pivot.set(speed);
+    }
+
     public boolean hasCone(){
         return s_cone.get();
     }
