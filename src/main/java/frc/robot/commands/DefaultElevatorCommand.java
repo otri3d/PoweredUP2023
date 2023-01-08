@@ -23,10 +23,16 @@ public class DefaultElevatorCommand extends CommandBase {
     public void execute(){
         double leftTriggerAxis = driver.getLeftTriggerAxis();
         double rightTriggerAxis = driver.getRightTriggerAxis();
+        //Elevator Movement
         if(leftTriggerAxis > Constants.triggerDeadzone){
             s_elevator.setElevatorSpeed(-leftTriggerAxis);
-        }else if(rightTriggerAxis > Constants.triggerDeadzone){
+        }
+        else if(rightTriggerAxis > Constants.triggerDeadzone){
             s_elevator.setElevatorSpeed(rightTriggerAxis);
+        }
+        //Elevator Limit Detection
+        if(s_elevator.limitSwitchHit()){
+            s_elevator.stopElevator();
         }
         
     }
