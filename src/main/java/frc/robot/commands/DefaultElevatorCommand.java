@@ -17,7 +17,7 @@ public class DefaultElevatorCommand extends CommandBase {
 
     @Override
     public void initialize(){
-        s_elevator.m_elevatorGroup.set(0);
+        s_elevator.setElevatorSpeed(0);
     }
 
     @Override
@@ -34,9 +34,6 @@ public class DefaultElevatorCommand extends CommandBase {
         //Limit Switch
         if(s_elevator.limitSwitchHit()){ //Makes elevator stop if upper switch or lower switch hit anything     
             s_elevator.stopElevator();
-        }
-        
+        } 
     }
-
-    
 }
