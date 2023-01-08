@@ -17,7 +17,7 @@ public class DefaultElevatorCommand extends CommandBase {
 
     @Override
     public void initialize(){
-        s_elevator.m_elevatorGroup.set(0);
+        s_elevator.stopElevator();
     }
 
     @Override
@@ -25,16 +25,13 @@ public class DefaultElevatorCommand extends CommandBase {
         double leftTriggerAxis = driver.getLeftTriggerAxis(); //Get axis
         double rightTriggerAxis = driver.getRightTriggerAxis();
         //Elevator Movement
-        if(leftTriggerAxis > Constants.triggerDeadzone){ //Set a deadzone to prevent accidental movement
+        if(leftTriggerAxis > Constants.triggerDeadzone && s_elevator.limitSwitchHit()==2){ //Set a deadzone to prevent accidental movement
             s_elevator.setElevatorSpeed(-leftTriggerAxis);
         }
-        else if(rightTriggerAxis > Constants.triggerDeadzone){
+        else if(rightTriggerAxis > Constants.triggerDeadzone && s_elevator.limitSwitchHit() ==1){
             s_elevator.setElevatorSpeed(rightTriggerAxis);
         }
         //Limit Switch
-        if(s_elevator.limitSwitchHit()){ //Makes elevator stop if upper switch or lower switch hit anything     
-            s_elevator.stopElevator();
-        }
         
     }
 
