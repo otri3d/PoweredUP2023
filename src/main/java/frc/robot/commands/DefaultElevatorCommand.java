@@ -17,6 +17,7 @@ public class DefaultElevatorCommand extends CommandBase {
 
     @Override
     public void initialize(){
+        s_elevator.m_elevatorGroup.set(0);
     }
 
     @Override
