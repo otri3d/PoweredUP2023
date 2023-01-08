@@ -8,6 +8,7 @@ public class RobotContainer {
     private final DriveSubsystem driveSubsystem;
 
     private static XboxController driver;
+    private static XboxController operator;
 
     public RobotContainer(){
         //DRIVE
@@ -15,9 +16,16 @@ public class RobotContainer {
         CommandScheduler.getInstance().setDefaultCommand(driveSubsystem, new DefaultDriveCommand(driveSubsystem));
 
         driver = new XboxController(0);
+        operator = new XboxController(1);
     }
 
     public static XboxController getDriverController(){
         return driver;
     }
+
+    public static XboxController getOperatorController(){
+        return operator;
+    }
+
+
 }
