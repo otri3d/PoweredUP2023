@@ -33,7 +33,7 @@ public class ElevatorSubsystem extends SubsystemBase{
         encoder.getRate();
     }
 
-    public void encoderPosition(){ //Gets the distance the elevator has travelled compared to the starting point
+    public double encoderPosition(){ //Gets the distance the elevator has travelled compared to the starting point
         encoder.getDistance();
     }
 
