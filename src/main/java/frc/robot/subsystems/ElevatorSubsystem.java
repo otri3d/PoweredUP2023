@@ -44,10 +44,12 @@ public class ElevatorSubsystem extends SubsystemBase{
         m_elevatorGroup.set(0);
     }
 
-    public boolean limitSwitchHit(){  //Method to return true when limit switches get hit
-        if(!upper_limit.get()||!lower_limit.get()){
-            return true;
+    public int limitSwitchHit(){  //Method to return true when limit switches get hit
+        if(!upper_limit.get()){
+            return 1;
+        }else if(!lower_limit.get()){
+            return 2;
         }
-        return false;
+        return 3;
     }
 }
