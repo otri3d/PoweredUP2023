@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.ClawSubsystem;
 
@@ -26,6 +27,16 @@ public class DefaultClawCommand extends CommandBase{
         } else {
             s_claw.setClawSpeed(0);
         }
+
+        if(RobotContainer.getOperatorController().getYButton())
+            CommandScheduler.getInstance().schedule(new ConeClawCommand(s_claw));
+
+        if(RobotContainer.getOperatorController().getXButton())
+            CommandScheduler.getInstance().schedule(new CubeClawCommand(s_claw));
+
+        if(RobotContainer.getOperatorController().getAButton())
+            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw));
+
     }
 
 }
