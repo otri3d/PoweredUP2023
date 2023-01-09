@@ -17,10 +17,10 @@ public class ClawSubsystem extends SubsystemBase{
     private DigitalInput s_cone, s_cube, s_open;
 
     public ClawSubsystem(){
-        so_cone = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.SOLENOID_CLAWCONE);
-        so_cube = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.SOLENOID_CLAWCUBE);
-        so_release = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.SOLENOID_RELEASE);
-        so_liftclaw = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.SOLENOID_LIFTCLAW);
+        so_cone = new Solenoid(9, PneumaticsModuleType.CTREPCM, Constants.SOLENOID_CLAWCONE);
+        so_cube = new Solenoid(9, PneumaticsModuleType.CTREPCM, Constants.SOLENOID_CLAWCUBE);
+        so_release = new Solenoid(9, PneumaticsModuleType.CTREPCM, Constants.SOLENOID_RELEASE);
+        so_liftclaw = new Solenoid(9, PneumaticsModuleType.CTREPCM, Constants.SOLENOID_LIFTCLAW);
         s_cone = new DigitalInput(Constants.CONE_SWITCH_DIO);
         s_cube = new DigitalInput(Constants.CUBE_SWITCH_DIO);
         s_open = new DigitalInput(Constants.OPEN_SWITCH_DIO);
