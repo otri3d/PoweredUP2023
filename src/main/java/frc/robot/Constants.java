@@ -28,8 +28,8 @@ public class Constants {
     public static final int OPEN_SWITCH_DIO = 6; 
 
 
-    public static final double triggerDeadzone = 0.05;
-    public static final double speedNormal = 0.8;
-    public static final double speedReduced = 0.5;
-    
+    public static final double TRIGGER_DEADZONE = 0.2;
+    public static final double MOTOR_SPEED_NORMAL = 0.8;
+    public static final double MOTOR_SPEED_REDUCED = 0.5;
+    public static final double ELEVATOR_SPEED_REDUCED = 0.4;
 }

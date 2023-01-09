@@ -1,11 +1,13 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveSubsystem;
 
 public class DefaultDriveCommand extends CommandBase {
     private final DriveSubsystem s_drive;
+    private boolean slowModeToggled = false; 
 
     public DefaultDriveCommand(DriveSubsystem drive){
         s_drive = drive;
@@ -20,7 +22,13 @@ public class DefaultDriveCommand extends CommandBase {
 
     @Override
     public void execute() {
-        s_drive.setLeftSpeed(RobotContainer.getDriverController().getLeftY());
-        s_drive.setRightSpeed(RobotContainer.getDriverController().getRightY());
+        double leftSpeed = RobotContainer.getDriverController().getLeftY();
+        double rightSpeed = RobotContainer.getDriverController().getRightY();
+        if(RobotContainer.getDriverController().getXButton()){
+            s_drive.toggleSlowMode();
+        }
+        s_drive.setLeftSpeed(leftSpeed);
+        s_drive.setRightSpeed(rightSpeed);
+        SmartDashboard.putBoolean("Slow Mode Status", s_drive.slowModeStatus());
     }
 }

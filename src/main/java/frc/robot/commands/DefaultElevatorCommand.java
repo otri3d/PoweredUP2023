@@ -22,15 +22,24 @@ public class DefaultElevatorCommand extends CommandBase {
 
     @Override
     public void execute(){
-        double leftTriggerAxis = driver.getLeftTriggerAxis(); //Get axis
-        double rightTriggerAxis = driver.getRightTriggerAxis();
-        
+        double elevatorDownSpeed = -driver.getLeftTriggerAxis()*Constants.ELEVATOR_SPEED_REDUCED; 
+        double elevatorUpSpeed = driver.getRightTriggerAxis()*Constants.ELEVATOR_SPEED_REDUCED;
+        boolean condition1 = s_elevator.limitSwitchHit()==2 || s_elevator.limitSwitchHit()==3;
+        boolean condition2 = s_elevator.limitSwitchHit()==1 || s_elevator.limitSwitchHit()==3;
+        int liftStatus = 2; //1 is moving 2 is neutral
+
         //Elevator Movement
-        if(leftTriggerAxis > Constants.triggerDeadzone && (s_elevator.limitSwitchHit()==2 || s_elevator.limitSwitchHit()==3)){ //Set a deadzone to prevent accidental movement
-            s_elevator.setElevatorSpeed(-leftTriggerAxis);
+        if(driver.getLeftTriggerAxis() > Constants.TRIGGER_DEADZONE && condition1 && liftStatus == 2){ //Set a deadzone to prevent accidental movement
+            liftStatus = 1;
+            s_elevator.setElevatorSpeed(elevatorDownSpeed);
         }
-        else if(rightTriggerAxis > Constants.triggerDeadzone && s_elevator.limitSwitchHit() ==1){
-            s_elevator.setElevatorSpeed(rightTriggerAxis);
+        else if(driver.getRightTriggerAxis() > Constants.TRIGGER_DEADZONE && condition2 && liftStatus == 2){
+            liftStatus = 1;
+            s_elevator.setElevatorSpeed(elevatorUpSpeed);
+        }
+        else{
+        liftStatus = 2;
+            s_elevator.setElevatorSpeed(0);
         }
     }
 }
