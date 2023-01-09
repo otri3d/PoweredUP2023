@@ -18,7 +18,6 @@ public class Robot extends TimedRobot {
 		m_container = new RobotContainer();
 	}
 
-
 	@Override
 	public void robotPeriodic() {
 		CommandScheduler.getInstance().run(); //DO NOT DELETE ME
