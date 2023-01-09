@@ -17,6 +17,9 @@ public class RobotContainer {
     private static XboxController operator;
 
     public RobotContainer(){
+        //CONTROLLERS
+        driver = new XboxController(Constants.XBOX_PORT1);
+        operator = new XboxController(Constants.XBOX_PORT2);
         //DRIVE
         driveSubsystem = new DriveSubsystem();
         CommandScheduler.getInstance().setDefaultCommand(driveSubsystem, new DefaultDriveCommand(driveSubsystem));

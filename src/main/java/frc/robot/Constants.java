@@ -11,11 +11,12 @@ public class Constants {
     public static final int CLAW_CAN1 = 7;
     public static final int CLAW_CAN2 = 8;
     public static final int PCM_COMPRESSOR = 9;
-    public static final int SOLENOID_CLAWCUBE = 10;
-    public static final int SOLENOID_CLAWCONE = 11;
-    public static final int SOLENOID_LIFTCLAW = 12;
-    public static final int SOLENOID_RELEASE = 13;
-    public static final int XBOX_PORT = 0;
+    public static final int SOLENOID_CLAWCUBE = 0;
+    public static final int SOLENOID_CLAWCONE = 1;
+    public static final int SOLENOID_LIFTCLAW = 2;
+    public static final int SOLENOID_RELEASE = 3;
+    public static final int XBOX_PORT1 = 0;
+    public static final int XBOX_PORT2 = 1;
     public static final int ENCODER_DIO1 = 2;
     public static final int ENCODER_DIO2 = 3;
     public static final int LIFTLOWER_DIO = 0;

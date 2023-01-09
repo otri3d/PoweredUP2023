@@ -7,6 +7,8 @@ import frc.robot.subsystems.ClawSubsystem;
 
 public class DefaultClawCommand extends CommandBase{
     private final ClawSubsystem s_claw;
+    private boolean holdingcube = false;
+    private boolean holdingcone = false;
 
     public DefaultClawCommand(ClawSubsystem claw){
         s_claw = claw;
@@ -15,24 +17,32 @@ public class DefaultClawCommand extends CommandBase{
     
     @Override
     public void initialize() {
-        s_claw.so_cube.set(false);
-        s_claw.so_cone.set(false);
-        s_claw.so_cube.set(false);
+
     }
 
     @Override
     public void execute() {
-        if(RobotContainer.getOperatorController().getYButton())
+        if(RobotContainer.getOperatorController().getYButton() && !holdingcube && !holdingcone){
+            holdingcone = true;
             CommandScheduler.getInstance().schedule(new ConeClawCommand(s_claw));
+        }
 
-        if(RobotContainer.getOperatorController().getXButton())
+        if(RobotContainer.getOperatorController().getXButton() && !holdingcube && !holdingcone){
+            holdingcube = true;
             CommandScheduler.getInstance().schedule(new CubeClawCommand(s_claw));
+        }
 
-        if(RobotContainer.getOperatorController().getAButton())
+        if(RobotContainer.getOperatorController().getBButton() && holdingcube){
+            holdingcube = false;
             CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw, "cube"));
-
-        if(RobotContainer.getOperatorController().getBButton())
+        }
+        //Release cone
+        if(RobotContainer.getOperatorController().getAButton() && holdingcone){
+            holdingcone = false;
             CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw, "cone"));
+        }
+        if(RobotContainer.getOperatorController().getLeftBumper())
+            s_claw.liftClaw();
     }
 
 }

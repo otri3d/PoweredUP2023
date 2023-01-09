@@ -7,12 +7,14 @@ import frc.robot.subsystems.ClawSubsystem;
 
 public class CubeClawCommand extends CommandBase{
     private final ClawSubsystem s_claw;
+    private boolean cancelcommand = false;
     private final XboxController operator;
 
     public CubeClawCommand(ClawSubsystem claw){
         s_claw = claw;
         addRequirements(claw);
         operator = RobotContainer.getOperatorController();
+        cancelcommand = true;
     }
 
     @Override
@@ -31,6 +33,7 @@ public class CubeClawCommand extends CommandBase{
 
     @Override
     public boolean isFinished() {
-        return s_claw.hasCube() || operator.getBButton();
+        return cancelcommand;
+        // return s_claw.hasCube() || operator.getBButton();
     }
 }
