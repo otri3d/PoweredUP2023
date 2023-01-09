@@ -8,8 +8,6 @@ public class Constants {
     public static final int RIGHT_REAR_CAN = 4;
     public static final int ELEVATOR_CAN1 = 5;
     public static final int ELEVATOR_CAN2 = 6;
-    public static final int CLAW_CAN1 = 7;
-    public static final int CLAW_CAN2 = 8;
     public static final int PCM_COMPRESSOR = 9;
     public static final int SOLENOID_CLAWCUBE = 0;
     public static final int SOLENOID_CLAWCONE = 1;

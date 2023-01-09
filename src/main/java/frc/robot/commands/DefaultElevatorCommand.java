@@ -26,7 +26,7 @@ public class DefaultElevatorCommand extends CommandBase {
         double rightTriggerAxis = driver.getRightTriggerAxis();
         
         //Elevator Movement
-        if(leftTriggerAxis > Constants.triggerDeadzone && s_elevator.limitSwitchHit()==2){ //Set a deadzone to prevent accidental movement
+        if(leftTriggerAxis > Constants.triggerDeadzone && (s_elevator.limitSwitchHit()==2 || s_elevator.limitSwitchHit()==3)){ //Set a deadzone to prevent accidental movement
             s_elevator.setElevatorSpeed(-leftTriggerAxis);
         }
         else if(rightTriggerAxis > Constants.triggerDeadzone && s_elevator.limitSwitchHit() ==1){
