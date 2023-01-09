@@ -34,12 +34,12 @@ public class DefaultClawCommand extends CommandBase{
 
         if(RobotContainer.getOperatorController().getBButton() && holdingcube){
             holdingcube = false;
-            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw, "cube"));
+            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw));
         }
         //Release cone
         if(RobotContainer.getOperatorController().getAButton() && holdingcone){
             holdingcone = false;
-            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw, "cone"));
+            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw));
         }
         if(RobotContainer.getOperatorController().getLeftBumper())
             s_claw.liftClaw();

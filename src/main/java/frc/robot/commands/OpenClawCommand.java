@@ -11,26 +11,17 @@ public class OpenClawCommand extends CommandBase{
     private final ClawSubsystem s_claw;
     private final XboxController operator;
     private String object;
-    public OpenClawCommand(ClawSubsystem claw, String gameobject){
+    public OpenClawCommand(ClawSubsystem claw){
         s_claw = claw;
-        object = gameobject;
         addRequirements(s_claw);
         operator = RobotContainer.getOperatorController();
     }
 
     @Override
     public void initialize(){
-        if(object == "cube"){
-            s_claw.so_cube.set(false);
-            s_claw.so_release.set(true);
-        }
-        else if(object == "cone"){
-            s_claw.so_cone.set(false);
-            s_claw.so_release.set(true);
-        }
-        else{
-            System.out.println("Wrong input.");
-        }
+        s_claw.so_cube.set(false);
+        s_claw.so_cone.set(false);
+        s_claw.so_release.set(true);
     }
 
     @Override
