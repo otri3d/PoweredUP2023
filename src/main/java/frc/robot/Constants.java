@@ -8,14 +8,18 @@ public class Constants {
     public static final int RIGHT_REAR_CAN = 4;
     public static final int ELEVATOR_CAN1 = 5;
     public static final int ELEVATOR_CAN2 = 6;
-    public static final int CLAW_CAN = 7;
-    public static final int PIVOT_CAN = 8;
+    public static final int CLAW_CAN1 = 7;
+    public static final int CLAW_CAN2 = 8;
+    public static final int PCM_COMPRESSOR = 9;
+    public static final int SOLENOID_CLAWCUBE = 10;
+    public static final int SOLENOID_CLAWCONE = 11;
+    public static final int SOLENOID_LIFTCLAW = 12;
+    public static final int SOLENOID_RELEASE = 13;
     public static final int XBOX_PORT = 0;
     public static final int ENCODER_DIO1 = 2;
     public static final int ENCODER_DIO2 = 3;
     public static final int LIFTLOWER_DIO = 0;
     public static final int LIFTUPPER_DIO = 1;
-
 
     public static final int UPPER_LIFT_LIMIT_DIO = 0;
     public static final int LOWER_LIFT_LIMIT_DIO = 1;

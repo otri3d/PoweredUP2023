@@ -34,7 +34,7 @@ public class ElevatorSubsystem extends SubsystemBase{
     }
 
     public double encoderPosition(){ //Gets the distance the elevator has travelled compared to the starting point
-        encoder.getDistance();
+        return encoder.getDistance();
     }
 
     public void encoderReset(){ 

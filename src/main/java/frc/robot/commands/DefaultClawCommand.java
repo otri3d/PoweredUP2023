@@ -15,21 +15,13 @@ public class DefaultClawCommand extends CommandBase{
     
     @Override
     public void initialize() {
-        s_claw.setClawSpeed(0);
+        s_claw.so_cube.set(false);
+        s_claw.so_cone.set(false);
+        s_claw.so_cube.set(false);
     }
 
     @Override
-    public void execute() {//manual control
-        if(RobotContainer.getOperatorController().getLeftBumper() && !s_claw.hasCube()){
-            s_claw.setClawSpeed(-1); //close
-        } else if(RobotContainer.getOperatorController().getRightBumper() && !s_claw.isOpen()) {
-            s_claw.setClawSpeed(1); //open
-        } else {
-            s_claw.setClawSpeed(0);
-        }
-
-        s_claw.setPivotSpeed(RobotContainer.getOperatorController().getRightY());
-
+    public void execute() {
         if(RobotContainer.getOperatorController().getYButton())
             CommandScheduler.getInstance().schedule(new ConeClawCommand(s_claw));
 
@@ -37,8 +29,10 @@ public class DefaultClawCommand extends CommandBase{
             CommandScheduler.getInstance().schedule(new CubeClawCommand(s_claw));
 
         if(RobotContainer.getOperatorController().getAButton())
-            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw));
+            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw, "cube"));
 
+        if(RobotContainer.getOperatorController().getBButton())
+            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw, "cone"));
     }
 
 }

@@ -17,17 +17,16 @@ public class CubeClawCommand extends CommandBase{
 
     @Override
     public void initialize() {
-        s_claw.setClawSpeed(0);
+        s_claw.so_cube.set(true);
+        s_claw.so_release.set(false);
     }
 
     @Override
     public void execute() {
-        s_claw.setClawSpeed(-0.5); //open?
     }
 
     @Override
     public void end(boolean interrupted) {
-        s_claw.setClawSpeed(0);
     }
 
     @Override
