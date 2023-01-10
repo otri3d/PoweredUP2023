@@ -20,8 +20,7 @@ public class ConeClawCommand extends CommandBase{
     @Override
     public void initialize() {
         s_claw.so_cone.set(true);
-        s_claw.so_release.set(false);
-        System.out.println("Picked up cone");   
+        s_claw.so_release.set(false); 
         cancelcommand = true;
     }
 
