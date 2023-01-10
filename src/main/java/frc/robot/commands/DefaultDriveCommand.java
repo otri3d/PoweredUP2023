@@ -31,6 +31,9 @@ public class DefaultDriveCommand extends CommandBase {
         }
         s_drive.setLeftSpeed(leftSpeed);
         s_drive.setRightSpeed(rightSpeed);
+
+        SmartDashboard.putNumber("Left Speed", leftSpeed);
+        SmartDashboard.putNumber("Right Speed", rightSpeed);
         SmartDashboard.putBoolean("Slow Mode Status", s_drive.slowModeStatus());
     }
 }
