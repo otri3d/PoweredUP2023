@@ -13,8 +13,8 @@ public class Constants {
     public static final int SOLENOID_CLAWCONE = 1;
     public static final int SOLENOID_LIFTCLAW = 2;
     public static final int SOLENOID_RELEASE = 3;
-    public static final int XBOX_PORT1 = 0;
-    public static final int XBOX_PORT2 = 1;
+    public static final int XBOX_PORT1 = 1;
+    public static final int XBOX_PORT2 = 0;
     public static final int ENCODER_DIO1 = 2;
     public static final int ENCODER_DIO2 = 3;
     public static final int LIFTLOWER_DIO = 0;
