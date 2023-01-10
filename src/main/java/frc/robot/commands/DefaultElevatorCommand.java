@@ -29,13 +29,13 @@ public class DefaultElevatorCommand extends CommandBase {
         int liftStatus = 2; //1 is moving 2 is neutral 3 is 
 
         if(!condition1){
-            s_elevator.setElevatorSpeed(Math.min(0, operator.getRightY()));
+            s_elevator.setElevatorSpeed(Math.min(0, elevatorUpSpeed));
         }
         else if(!condition2){
-            s_elevator.setElevatorSpeed(Math.max(0, operator.getRightY()));
+            s_elevator.setElevatorSpeed(Math.max(0, elevatorDownSpeed));
         }
         else{
-            s_elevator.setElevatorSpeed(operator.getRightY());
+            s_elevator.setElevatorSpeed(operator.getRightY()*Constants.ELEVATOR_SPEED_REDUCED);
         }
 
 
