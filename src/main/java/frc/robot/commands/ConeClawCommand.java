@@ -5,8 +5,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.ClawSubsystem;
 
+
 public class ConeClawCommand extends CommandBase{
     private final ClawSubsystem s_claw;
+    private boolean cancelcommand = false;
     private final XboxController operator;
 
     public ConeClawCommand(ClawSubsystem claw){
@@ -17,21 +19,23 @@ public class ConeClawCommand extends CommandBase{
 
     @Override
     public void initialize() {
-        s_claw.setClawSpeed(0);
+        s_claw.so_cone.set(true);
+        s_claw.so_release.set(false);
+        System.out.println("Picked up cone");   
+        cancelcommand = true;
     }
 
     @Override
     public void execute() {
-        s_claw.setClawSpeed(-0.5); //open?
     }
 
     @Override
     public void end(boolean interrupted) {
-        s_claw.setClawSpeed(0);
     }
 
     @Override
     public boolean isFinished() {
+        // return cancelcommand;
         return s_claw.hasCone() || operator.getBButton();
     }
 }

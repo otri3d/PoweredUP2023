@@ -7,6 +7,8 @@ import frc.robot.subsystems.ClawSubsystem;
 
 public class DefaultClawCommand extends CommandBase{
     private final ClawSubsystem s_claw;
+    private boolean holdingcube = false;
+    private boolean holdingcone = false;
 
     public DefaultClawCommand(ClawSubsystem claw){
         s_claw = claw;
@@ -15,30 +17,32 @@ public class DefaultClawCommand extends CommandBase{
     
     @Override
     public void initialize() {
-        s_claw.setClawSpeed(0);
+
     }
 
     @Override
-    public void execute() {//manual control
-        if(RobotContainer.getOperatorController().getLeftBumper() && !s_claw.hasCube()){
-            s_claw.setClawSpeed(-1); //close
-        } else if(RobotContainer.getOperatorController().getRightBumper() && !s_claw.isOpen()) {
-            s_claw.setClawSpeed(1); //open
-        } else {
-            s_claw.setClawSpeed(0);
+    public void execute() {
+        if(RobotContainer.getOperatorController().getYButton() && !holdingcube && !holdingcone){
+            holdingcone = true;
+            CommandScheduler.getInstance().schedule(new ConeClawCommand(s_claw));
         }
 
-        s_claw.setPivotSpeed(RobotContainer.getOperatorController().getRightY());
-
-        if(RobotContainer.getOperatorController().getYButton())
-            CommandScheduler.getInstance().schedule(new ConeClawCommand(s_claw));
-
-        if(RobotContainer.getOperatorController().getXButton())
+        if(RobotContainer.getOperatorController().getXButton() && !holdingcube && !holdingcone){
+            holdingcube = true;
             CommandScheduler.getInstance().schedule(new CubeClawCommand(s_claw));
+        }
 
-        if(RobotContainer.getOperatorController().getAButton())
+        if(RobotContainer.getOperatorController().getBButton() && holdingcube){
+            holdingcube = false;
             CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw));
-
+        }
+        //Release cone
+        if(RobotContainer.getOperatorController().getAButton() && holdingcone){
+            holdingcone = false;
+            CommandScheduler.getInstance().schedule(new OpenClawCommand(s_claw));
+        }
+        if(RobotContainer.getOperatorController().getLeftBumper())
+            s_claw.liftClaw();
     }
 
 }

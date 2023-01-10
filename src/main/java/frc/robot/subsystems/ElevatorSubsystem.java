@@ -34,7 +34,7 @@ public class ElevatorSubsystem extends SubsystemBase{
     }
 
     public double encoderPosition(){ //Gets the distance the elevator has travelled compared to the starting point
-        encoder.getDistance();
+        return encoder.getDistance();
     }
 
     public void encoderReset(){ 
@@ -44,10 +44,12 @@ public class ElevatorSubsystem extends SubsystemBase{
         m_elevatorGroup.set(0);
     }
 
-    public int limitSwitchHit(){  //Method to return true when limit switches get hit
+    public int limitSwitchHit(){  //Method to return a value when limit switches get hit
         if(!upper_limit.get()){
             return 1;
-        }else if(!lower_limit.get()){
+        }
+        
+        if(!lower_limit.get()){
             return 2;
         }
         return 3;
