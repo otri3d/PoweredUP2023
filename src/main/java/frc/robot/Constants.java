@@ -9,10 +9,10 @@ public class Constants {
     public static final int ELEVATOR_CAN1 = 5;
     public static final int ELEVATOR_CAN2 = 6;
     public static final int PCM_COMPRESSOR = 9;
-    public static final int SOLENOID_CLAWCUBE = 0;
-    public static final int SOLENOID_CLAWCONE = 1;
-    public static final int SOLENOID_LIFTCLAW = 2;
-    public static final int SOLENOID_RELEASE = 3;
+    public static final int SOLENOID_CLAWCUBE = 1;
+    public static final int SOLENOID_CLAWCONE = 0;
+    public static final int SOLENOID_LIFTCLAW = 3;
+    public static final int SOLENOID_RELEASE = 2;
     public static final int XBOX_PORT1 = 1;
     public static final int XBOX_PORT2 = 0;
     public static final int ENCODER_DIO1 = 2;
@@ -31,5 +31,5 @@ public class Constants {
     public static final double TRIGGER_DEADZONE = 0.2;
     public static final double MOTOR_SPEED_NORMAL = 0.8;
     public static final double MOTOR_SPEED_REDUCED = 0.35;
-    public static final double ELEVATOR_SPEED_REDUCED = 0.05;
+    public static final double ELEVATOR_SPEED_REDUCED = 0.25;
 }
