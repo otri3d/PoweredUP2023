@@ -24,22 +24,27 @@ public class DriveSubsystem extends SubsystemBase{
     }
 
     public void setLeftSpeed(double speed){
-        m_left.set(speed * speedConstant);
+        m_left.set(speed);
     }
 
     public void setRightSpeed(double speed){
-        m_right.set(speed * speedConstant);
+        m_right.set(speed);
     }
 
     public void toggleSlowMode(){
         if(!slowModeToggled){
             speedConstant = Constants.MOTOR_SPEED_REDUCED;
+            slowModeToggled = true;
         }
         else{
             speedConstant = Constants.MOTOR_SPEED_NORMAL;
+            slowModeToggled = false;
         }
     }
     public boolean slowModeStatus(){
         return slowModeToggled;
+    }
+    public double speedConstant(){
+        return speedConstant;
     }
 }
