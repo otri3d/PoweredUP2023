@@ -33,7 +33,7 @@ public class CubeClawCommand extends CommandBase{
 
     @Override
     public boolean isFinished() {
-        return cancelcommand;
-        // return s_claw.hasCube() || operator.getBButton();
+        // return cancelcommand;
+        return s_claw.hasCube() || operator.getBButton();
     }
 }

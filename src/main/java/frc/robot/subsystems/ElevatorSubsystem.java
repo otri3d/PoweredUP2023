@@ -47,7 +47,9 @@ public class ElevatorSubsystem extends SubsystemBase{
     public int limitSwitchHit(){  //Method to return a value when limit switches get hit
         if(!upper_limit.get()){
             return 1;
-        }else if(!lower_limit.get()){
+        }
+        
+        if(!lower_limit.get()){
             return 2;
         }
         return 3;
