@@ -25,7 +25,6 @@ public class DefaultDriveCommand extends CommandBase {
     @Override
     public void execute() {
         double leftSpeed = -driver.getLeftY()*s_drive.speedConstant();
-        System.out.println(driver.getLeftY());
         double rightSpeed = -driver.getRightY()*s_drive.speedConstant(); 
         if(RobotContainer.getDriverController().getXButton()){
             s_drive.toggleSlowMode();
