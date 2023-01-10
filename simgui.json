@@ -84,5 +84,8 @@
       "/LiveWindow/Ungrouped/Victor SPX [7]": "Motor Controller",
       "/LiveWindow/Ungrouped/Victor SPX [8]": "Motor Controller"
     }
+  },
+  "NetworkTables View": {
+    "visible": false
   }
 }
